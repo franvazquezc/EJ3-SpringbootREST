@@ -1,18 +1,19 @@
-package entity;
+package model;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
-
 public class Alumno {
     @Id
     @Column(nullable = false)
@@ -29,12 +30,9 @@ public class Alumno {
     private String genero;
     @Column(nullable = false,length = 255)
     private String ciudadResidencia;
-    @OneToMany (mappedBy = "alumno")
+    @OneToMany(mappedBy = "alumno")
+    @JsonIgnore
     private List<AlumnoCarrera> carreras;
-
-    public Alumno() {
-
-    }
 
     public Alumno(int dni,int lu,String nombre,String apellido,int edad,String genero,String ciudadResidencia) {
         this.dni = dni;
@@ -46,6 +44,8 @@ public class Alumno {
         this.ciudadResidencia = ciudadResidencia;
         this.carreras = new ArrayList<>();
     }
+
+    public Alumno() {}
 
     @Override
     public String toString() {

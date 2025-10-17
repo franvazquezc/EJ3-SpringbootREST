@@ -1,6 +1,9 @@
-package entity;
+package model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,10 +22,8 @@ public class Carrera {
     private String nombre;
     @Column(nullable = false)
     private int duracion;
-    @OneToMany (mappedBy = "carrera")
+    @OneToMany(mappedBy = "carrera")
     private List<AlumnoCarrera> inscriptos;
-
-
 
     public Carrera(int id,String nombre, int duracion) {
         this.id  = id;
@@ -31,7 +32,5 @@ public class Carrera {
         this.inscriptos = new ArrayList<>();
     }
 
-    public Carrera() {
-
-    }
+    public Carrera() {}
 }

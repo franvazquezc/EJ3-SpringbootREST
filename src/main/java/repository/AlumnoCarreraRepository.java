@@ -1,8 +1,8 @@
 package repository;
 
 import dto.AlumnoDTO;
-import entity.AlumnoCarrera;
-import entity.IdAlumnoCarrera;
+import model.AlumnoCarrera;
+import model.IdAlumnoCarrera;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

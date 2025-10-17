@@ -1,11 +1,9 @@
-package entity;
+package model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.util.Date;
 
 @Entity
 @Getter
@@ -29,8 +27,7 @@ public class AlumnoCarrera {
     @JoinColumn(name="dni")
     private Alumno alumno;
 
-    public AlumnoCarrera(IdAlumnoCarrera id, Alumno a, Carrera c, int graduado, int inscripcion, int antiguedad) {
-        this.id = id;
+    public AlumnoCarrera(Alumno a, Carrera c, int graduado, int inscripcion, int antiguedad) {
         this.alumno = a;
         this.carrera = c;
         this.graduado = graduado;
@@ -41,7 +38,5 @@ public class AlumnoCarrera {
         this.id = new IdAlumnoCarrera(idAlumno, idCarrera);
     }
 
-    public AlumnoCarrera() {
-
-    }
+    public AlumnoCarrera() {}
 }
