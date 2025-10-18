@@ -8,17 +8,17 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CarreraDTO {
+    private int id;
     private String nombre;
     private int duracion;
     private int cantInscriptos;
 
-    public CarreraDTO(String nombre, int duracion, int cantInscriptos) {
+    public CarreraDTO(int id, String nombre, int duracion, int cantInscriptos) {
+        this.id = id;
         this.nombre = nombre;
         this.duracion = duracion;
         this.cantInscriptos = cantInscriptos;
     }
 
-    public CarreraDTO() {
-
-    }
+    public CarreraDTO() {}
 }

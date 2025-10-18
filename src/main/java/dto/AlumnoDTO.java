@@ -26,7 +26,5 @@ public class AlumnoDTO {
         this.lu = lu;
     }
 
-    public AlumnoDTO() {
-
-    }
+    public AlumnoDTO() {}
 }
