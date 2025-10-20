@@ -1,11 +1,11 @@
-package controller;
+package com.tudai.arquitecturasweb.controller;
 
-import dto.CarreraDTO;
-import model.Carrera;
+import com.tudai.arquitecturasweb.dto.CarreraDTO;
+import com.tudai.arquitecturasweb.model.Carrera;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
-import service.CarreraService;
+import com.tudai.arquitecturasweb.service.CarreraService;
 
 import java.util.List;
 

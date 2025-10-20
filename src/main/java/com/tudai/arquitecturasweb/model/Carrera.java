@@ -1,4 +1,4 @@
-package model;
+package com.tudai.arquitecturasweb.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

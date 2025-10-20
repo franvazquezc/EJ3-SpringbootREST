@@ -1,17 +1,16 @@
-package utils;
+package com.tudai.arquitecturasweb.utils;
 
-import model.Alumno;
-import model.AlumnoCarrera;
-import model.Carrera;
-import model.IdAlumnoCarrera;
+import com.tudai.arquitecturasweb.model.Alumno;
+import com.tudai.arquitecturasweb.model.AlumnoCarrera;
+import com.tudai.arquitecturasweb.model.Carrera;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.AlumnoCarreraRepository;
-import service.AlumnoService;
-import service.CarreraService;
+import com.tudai.arquitecturasweb.repository.AlumnoCarreraRepository;
+import com.tudai.arquitecturasweb.service.AlumnoService;
+import com.tudai.arquitecturasweb.service.CarreraService;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -25,9 +24,10 @@ public class LoadCSV {
     @Autowired
     private AlumnoCarreraRepository alumnoCarreraRepository;
 
-    private final String fileCarrera = "src/main/java/utils/CSV/Carrera.csv";
-    private final String fileEstudianteCarrera = "src/main/java/utils/CSV/estudianteCarrera.csv";
-    private final String fileEstudiantes = "src/main/java/utils/CSV/estudiantes.csv";
+    private final String fileCarrera = "src/main/java/com/tudai/arquitecturasweb/utils/CSV/carreras.csv";
+    private final String fileEstudianteCarrera = "src/main/java/com/tudai/arquitecturasweb/utils/CSV/estudianteCarrera.csv";
+    private final String fileEstudiantes = "src/main/java/com/tudai/arquitecturasweb/utils/CSV/estudiantes.csv";
+
 
     public LoadCSV(){}
 
@@ -42,7 +42,7 @@ public class LoadCSV {
         }
     }
 
-    public void LoadAlumnos() throws IOException {
+    public void LoadAlumno() throws IOException {
         CSVParser csvParser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(fileEstudiantes));
         for(CSVRecord row: csvParser) {
             int dni = Integer.parseInt(row.get("DNI"));

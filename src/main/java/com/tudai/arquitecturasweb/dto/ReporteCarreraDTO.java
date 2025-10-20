@@ -1,4 +1,4 @@
-package dto;
+package com.tudai.arquitecturasweb.dto;
 
 import lombok.Getter;
 import lombok.Setter;

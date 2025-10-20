@@ -1,4 +1,4 @@
-package model;
+package com.tudai.arquitecturasweb.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;

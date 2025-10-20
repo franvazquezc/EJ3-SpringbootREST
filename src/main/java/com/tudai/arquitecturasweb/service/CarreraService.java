@@ -1,11 +1,10 @@
-package service;
+package com.tudai.arquitecturasweb.service;
 
-import dto.ReporteCarreraDTO;
-import model.Alumno;
-import model.Carrera;
-import repository.AlumnoCarreraRepository;
-import repository.CarreraRepository;
-import dto.CarreraDTO;
+import com.tudai.arquitecturasweb.dto.ReporteCarreraDTO;
+import com.tudai.arquitecturasweb.model.Carrera;
+import com.tudai.arquitecturasweb.repository.AlumnoCarreraRepository;
+import com.tudai.arquitecturasweb.repository.CarreraRepository;
+import com.tudai.arquitecturasweb.dto.CarreraDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

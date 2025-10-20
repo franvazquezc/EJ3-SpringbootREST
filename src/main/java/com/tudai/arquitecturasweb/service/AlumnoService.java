@@ -1,24 +1,19 @@
-package service;
+package com.tudai.arquitecturasweb.service;
 
-import dto.AlumnoDTO;
-import dto.CarreraDTO;
-import jakarta.transaction.Transactional;
+import com.tudai.arquitecturasweb.dto.AlumnoDTO;
+import com.tudai.arquitecturasweb.dto.CarreraDTO;
 import lombok.RequiredArgsConstructor;
-import model.Alumno;
-import model.AlumnoCarrera;
-import model.Carrera;
-import model.IdAlumnoCarrera;
+import com.tudai.arquitecturasweb.model.Alumno;
+import com.tudai.arquitecturasweb.model.AlumnoCarrera;
+import com.tudai.arquitecturasweb.model.Carrera;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.AlumnoCarreraRepository;
-import repository.AlumnoRepository;
-import repository.CarreraRepository;
+import com.tudai.arquitecturasweb.repository.AlumnoCarreraRepository;
+import com.tudai.arquitecturasweb.repository.AlumnoRepository;
+import com.tudai.arquitecturasweb.repository.CarreraRepository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

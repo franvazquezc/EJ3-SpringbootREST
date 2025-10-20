@@ -1,7 +1,7 @@
-package repository;
+package com.tudai.arquitecturasweb.repository;
 
-import dto.CarreraDTO;
-import model.Carrera;
+import com.tudai.arquitecturasweb.dto.CarreraDTO;
+import com.tudai.arquitecturasweb.model.Carrera;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

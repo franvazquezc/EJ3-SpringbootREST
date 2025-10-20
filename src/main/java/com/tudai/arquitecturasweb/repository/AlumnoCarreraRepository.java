@@ -1,8 +1,8 @@
-package repository;
+package com.tudai.arquitecturasweb.repository;
 
-import dto.AlumnoDTO;
-import model.AlumnoCarrera;
-import model.IdAlumnoCarrera;
+import com.tudai.arquitecturasweb.dto.AlumnoDTO;
+import com.tudai.arquitecturasweb.model.AlumnoCarrera;
+import com.tudai.arquitecturasweb.model.IdAlumnoCarrera;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

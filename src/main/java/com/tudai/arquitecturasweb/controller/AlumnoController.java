@@ -1,12 +1,12 @@
-package controller;
+package com.tudai.arquitecturasweb.controller;
 
-import dto.AlumnoDTO;
-import dto.CarreraDTO;
-import model.Alumno;
+import com.tudai.arquitecturasweb.dto.AlumnoDTO;
+import com.tudai.arquitecturasweb.dto.CarreraDTO;
+import com.tudai.arquitecturasweb.model.Alumno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
-import service.AlumnoService;
+import com.tudai.arquitecturasweb.service.AlumnoService;
 
 import java.util.List;
 
