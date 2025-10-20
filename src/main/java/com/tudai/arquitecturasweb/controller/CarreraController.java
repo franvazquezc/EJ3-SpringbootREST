@@ -11,14 +11,8 @@ import java.util.List;
 
 @RestController
 public class CarreraController {
-
-    @Qualifier("CarreraRepositoryImp")
     @Autowired
     private CarreraService carreraService;
-
-    public CarreraController(@Qualifier("CarreraService")CarreraService carreraService) {
-        this.carreraService = carreraService;
-    }
 
     @GetMapping("/carreras")
     public List<Carrera> getCarreras() {

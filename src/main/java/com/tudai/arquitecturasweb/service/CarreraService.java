@@ -31,19 +31,11 @@ public class CarreraService {
     }
 
     public Carrera save(Carrera c) {
-        Carrera registro = this.getById(c.getId());
-        if(registro != null) {
-            throw new RuntimeException("Ya existe un registro con id " + c.getId());
-        }
         this.carreraRepository.save(c);
         return c;
     }
 
     public void delete(int id) {
-        Carrera registro = this.getById(id);
-        if(registro == null) {
-            throw new RuntimeException("No existe un registro con id " + id);
-        }
         this.carreraRepository.deleteById(id);
     }
 

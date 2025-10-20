@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface AlumnoRepository extends JpaRepository<Alumno, Integer> {
 
-    @Query("SELECT new dto.AlumnoDTO(a.dni, a.nombre, a.apellido, a.edad, a.genero, a.ciudadResidencia, a.lu) " +
+    @Query("SELECT new com.tudai.arquitecturasweb.dto.AlumnoDTO(a.dni, a.nombre, a.apellido, a.edad, a.genero, a.ciudadResidencia, a.lu) " +
             "FROM AlumnoCarrera ac " +
             "JOIN ac.alumno a " +
             "JOIN ac.carrera c " +

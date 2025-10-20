@@ -12,13 +12,8 @@ import java.util.List;
 
 @RestController
 public class AlumnoController {
-
     @Autowired
-    private final AlumnoService alumnoService;
-
-    public AlumnoController(@Qualifier("AlumnoService") AlumnoService alumnoService) {
-        this.alumnoService = alumnoService;
-    }
+    private AlumnoService alumnoService;
 
     @GetMapping("/alumnos")
     public Iterable<Alumno> getAlumnos(){
@@ -65,8 +60,10 @@ public class AlumnoController {
         return alumnoService.getAlumnoByCarrera(id, ciudad);
     }
 
+    /* Corregir: Un solo DTO en el Body.
     @PostMapping("/alumno/matricularAlumno")
     public void matricularAlumnoACarrera(@RequestBody AlumnoDTO aDto, @RequestBody CarreraDTO cDto){
         alumnoService.matricularAlumnoACarrera(aDto, cDto);
     }
+    */
 }

@@ -4,6 +4,7 @@ import com.tudai.arquitecturasweb.utils.LoadCSV;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import java.io.IOException;
 
@@ -11,11 +12,14 @@ import java.io.IOException;
 public class Ej3SpringbootRestApplication {
 
     public static void main(String[] args) throws IOException {
-        LoadCSV cargarCSV = new LoadCSV();
+
+        ConfigurableApplicationContext context = SpringApplication.run(Ej3SpringbootRestApplication.class, args);
+
+
+        LoadCSV cargarCSV = context.getBean(LoadCSV.class);
         cargarCSV.LoadCarrera();
         cargarCSV.LoadAlumno();
         cargarCSV.LoadAlumnoCarrera();
-        SpringApplication.run(Ej3SpringbootRestApplication.class, args);
     }
 
 }

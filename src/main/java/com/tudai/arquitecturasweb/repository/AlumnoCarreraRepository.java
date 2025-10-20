@@ -13,13 +13,13 @@ import java.util.List;
 @Repository
 public interface AlumnoCarreraRepository extends JpaRepository<AlumnoCarrera, IdAlumnoCarrera> {
 
-    @Query("SELECT new dto.AlumnoDTO(a.dni, a.nombre, a.apellido, a.edad, a.genero, a.ciudadResidencia, a.lu) " +
+    @Query("SELECT new com.tudai.arquitecturasweb.dto.AlumnoDTO(a.dni, a.nombre, a.apellido, a.edad, a.genero, a.ciudadResidencia, a.lu) " +
             "FROM AlumnoCarrera ac JOIN ac.alumno a " +
             "WHERE ac.carrera.id = :idCarrera AND ac.graduado = 0 " +
             "ORDER BY ac.inscripcion ASC")
     List<AlumnoDTO> getInscriptos(int idCarrera);
 
-    @Query("SELECT new dto.AlumnoDTO(a.dni, a.nombre, a.apellido, a.edad, a.genero, a.ciudadResidencia, a.lu) " +
+    @Query("SELECT new com.tudai.arquitecturasweb.dto.AlumnoDTO(a.dni, a.nombre, a.apellido, a.edad, a.genero, a.ciudadResidencia, a.lu) " +
             "FROM AlumnoCarrera ac JOIN ac.alumno a " +
             "WHERE ac.carrera.id = :idCarrera AND ac.graduado != 0 " +
             "ORDER BY ac.inscripcion ASC")
