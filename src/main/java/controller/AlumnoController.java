@@ -1,6 +1,7 @@
 package controller;
 
 import dto.AlumnoDTO;
+import dto.CarreraDTO;
 import model.Alumno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,12 +11,12 @@ import service.AlumnoService;
 import java.util.List;
 
 @RestController
-public class alumnoController {
+public class AlumnoController {
 
     @Autowired
     private final AlumnoService alumnoService;
 
-    public alumnoController(@Qualifier("AlumnoService") AlumnoService alumnoService) {
+    public AlumnoController(@Qualifier("AlumnoService") AlumnoService alumnoService) {
         this.alumnoService = alumnoService;
     }
 
@@ -64,8 +65,8 @@ public class alumnoController {
         return alumnoService.getAlumnoByCarrera(id, ciudad);
     }
 
-    @PostMapping("/alumno/matricularAlumnoACarrera")
-    public void matricularAlumnoACarrera(@RequestBody AlumnoDTO alumnoDTO){
-
+    @PostMapping("/alumno/matricularAlumno")
+    public void matricularAlumnoACarrera(@RequestBody AlumnoDTO aDto, @RequestBody CarreraDTO cDto){
+        alumnoService.matricularAlumnoACarrera(aDto, cDto);
     }
 }

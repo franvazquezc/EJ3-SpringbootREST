@@ -10,13 +10,13 @@ import service.CarreraService;
 import java.util.List;
 
 @RestController
-public class carreraController {
+public class CarreraController {
 
     @Qualifier("CarreraRepositoryImp")
     @Autowired
     private CarreraService carreraService;
 
-    public carreraController(@Qualifier("CarreraService")CarreraService carreraService) {
+    public CarreraController(@Qualifier("CarreraService")CarreraService carreraService) {
         this.carreraService = carreraService;
     }
 
@@ -41,8 +41,8 @@ public class carreraController {
     }
 
     @PostMapping("/carrera/{id}")
-    public void updateCarrera(@RequestBody Carrera carrera, @PathVariable("id") int id){
-        carreraService.update(id, carrera);
+    public void updateCarrera(@RequestBody Carrera nueva, @PathVariable("id") int id){
+        carreraService.update(id, nueva);
     }
 
     @GetMapping("/carrera/OrderByAlumnos")
@@ -50,8 +50,10 @@ public class carreraController {
         return carreraService.getCarrerasOrderByCantAlumnos();
     }
 
+    /*
     @GetMapping("/carrera/OrderByNombre")
     public Iterable<Carrera> getCarreraOrderByNombre(){
         return carreraService.getCarrerasOrderByNombre();
     }
+    */
 }

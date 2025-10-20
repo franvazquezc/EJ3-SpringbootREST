@@ -1,6 +1,7 @@
 package service;
 
 import dto.AlumnoDTO;
+import dto.CarreraDTO;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import model.Alumno;
@@ -13,8 +14,11 @@ import repository.AlumnoCarreraRepository;
 import repository.AlumnoRepository;
 import repository.CarreraRepository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +28,8 @@ public class AlumnoService {
     private final AlumnoRepository alumnoRepository;
     @Autowired
     private final CarreraRepository carreraRepository;
+    @Autowired
+    private final AlumnoCarreraRepository alumnoCarreraRepository;
 
     public List<Alumno> getAll(){
         List<Alumno> alumnos = alumnoRepository.findAll();
@@ -38,20 +44,8 @@ public class AlumnoService {
     }
 
     public Alumno save(Alumno alumno){
-
-        Alumno a = new Alumno(
-                alumno.getDni(),
-                alumno.getLu(),
-                alumno.getNombre(),
-                alumno.getApellido(),
-                alumno.getEdad(),
-                alumno.getGenero(),
-                alumno.getCiudadResidencia()
-        );
-
-        alumnoRepository.save(a);
-
-        return a;
+        alumnoRepository.save(alumno);
+        return alumno;
     }
 
     public void update(Alumno alumno, int dni){
@@ -96,12 +90,12 @@ public class AlumnoService {
         return alumnos;
     }
 
-    //Consultar con los pibes
-//    public void matricularAlumnoACarrera(int dni, int idCarrera, int inscripcion, int graduado, int antiguedad){
-//        Alumno a = alumnoRepository.findById(dni).orElseThrow(()-> new RuntimeException());
-//        Carrera c = carreraRepository.findById(idCarrera).orElseThrow(()-> new RuntimeException());
-//        IdAlumnoCarrera IdAC = new IdAlumnoCarrera(a.getDni(), c.getId());
-//        AlumnoCarrera ac = new AlumnoCarrera(IdAC, a, c, graduado, inscripcion, antiguedad);
-//        AlumnoCarreraRepository.save(ac);
-//    }
+    public void matricularAlumnoACarrera(AlumnoDTO aDto, CarreraDTO cDto){
+        Alumno a = this.alumnoRepository.findById(aDto.getDni()).orElseThrow(() -> new RuntimeException("Alumno no encontrado"));
+        Carrera c = this.carreraRepository.findById(cDto.getId()).orElseThrow(() -> new RuntimeException("Carrera no encontrada"));;
+        LocalDate hoy = LocalDate.now();
+
+        AlumnoCarrera ac = new AlumnoCarrera(a, c, 0,hoy.getYear(), 0);
+        this.alumnoCarreraRepository.save(ac);
+    }
 }
