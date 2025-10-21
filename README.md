@@ -1,4 +1,4 @@
-# Ejercicio Entrgable N3 de Arquitecturas Web:
+# Ejercicio Entregable N3 de Arquitecturas Web:
 
 ## Integrantes:
 - Ezequiel Enrique Buzzella (ezequiel.buzzella@gmail.com).
@@ -36,7 +36,7 @@
 **Body (JSON): Alumno**
 
 #### Ejemplo:
-- **GET** http://localhost:8080/alumno/matricularAlumno
+- **POST** http://localhost:8080/alumno/matricularAlumno
 - **En Body -> raw -> JSON:**
 ```json
 {
