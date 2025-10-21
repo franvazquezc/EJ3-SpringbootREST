@@ -12,14 +12,10 @@ import java.io.IOException;
 public class Ej3SpringbootRestApplication {
 
     public static void main(String[] args) throws IOException {
-
         ConfigurableApplicationContext context = SpringApplication.run(Ej3SpringbootRestApplication.class, args);
-
-
         LoadCSV cargarCSV = context.getBean(LoadCSV.class);
         cargarCSV.LoadCarrera();
         cargarCSV.LoadAlumno();
         cargarCSV.LoadAlumnoCarrera();
     }
-
 }

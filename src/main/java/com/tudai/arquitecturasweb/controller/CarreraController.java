@@ -1,6 +1,7 @@
 package com.tudai.arquitecturasweb.controller;
 
 import com.tudai.arquitecturasweb.dto.CarreraDTO;
+import com.tudai.arquitecturasweb.dto.ReporteCarreraDTO;
 import com.tudai.arquitecturasweb.model.Carrera;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -42,6 +43,11 @@ public class CarreraController {
     @GetMapping("/carrera/OrderByAlumnos")
     public Iterable<CarreraDTO> getCarrerasOrderByCantAlumnos(){
         return carreraService.getCarrerasOrderByCantAlumnos();
+    }
+
+    @GetMapping("/carreras/reporte")
+    public Iterable<ReporteCarreraDTO> getReporte() {
+        return carreraService.getReporte();
     }
 
     /*

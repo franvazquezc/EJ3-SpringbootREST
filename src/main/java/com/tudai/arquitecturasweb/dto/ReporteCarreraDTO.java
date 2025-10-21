@@ -19,4 +19,6 @@ public class ReporteCarreraDTO {
         this.inscriptos = inscriptos;
         this.graduados = graduados;
     }
+
+    public ReporteCarreraDTO() {}
 }

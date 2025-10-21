@@ -2,6 +2,7 @@ package com.tudai.arquitecturasweb.controller;
 
 import com.tudai.arquitecturasweb.dto.AlumnoDTO;
 import com.tudai.arquitecturasweb.dto.CarreraDTO;
+import com.tudai.arquitecturasweb.dto.IdAlumnoCarreraDTO;
 import com.tudai.arquitecturasweb.model.Alumno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -60,10 +61,8 @@ public class AlumnoController {
         return alumnoService.getAlumnoByCarrera(id, ciudad);
     }
 
-    /* Corregir: Un solo DTO en el Body.
     @PostMapping("/alumno/matricularAlumno")
-    public void matricularAlumnoACarrera(@RequestBody AlumnoDTO aDto, @RequestBody CarreraDTO cDto){
-        alumnoService.matricularAlumnoACarrera(aDto, cDto);
+    public void matricularAlumnoACarrera(@RequestBody IdAlumnoCarreraDTO acDto){
+        alumnoService.matricularAlumnoACarrera(acDto);
     }
-    */
 }

@@ -1,7 +1,7 @@
 package com.tudai.arquitecturasweb.service;
 
+import com.tudai.arquitecturasweb.dto.IdAlumnoCarreraDTO;
 import com.tudai.arquitecturasweb.dto.AlumnoDTO;
-import com.tudai.arquitecturasweb.dto.CarreraDTO;
 import lombok.RequiredArgsConstructor;
 import com.tudai.arquitecturasweb.model.Alumno;
 import com.tudai.arquitecturasweb.model.AlumnoCarrera;
@@ -20,11 +20,11 @@ import java.util.List;
 public class AlumnoService {
 
     @Autowired
-    private final AlumnoRepository alumnoRepository;
+    private AlumnoRepository alumnoRepository;
     @Autowired
-    private final CarreraRepository carreraRepository;
+    private CarreraRepository carreraRepository;
     @Autowired
-    private final AlumnoCarreraRepository alumnoCarreraRepository;
+    private AlumnoCarreraRepository alumnoCarreraRepository;
 
     public List<Alumno> getAll(){
         List<Alumno> alumnos = alumnoRepository.findAll();
@@ -85,12 +85,12 @@ public class AlumnoService {
         return alumnos;
     }
 
-    public void matricularAlumnoACarrera(AlumnoDTO aDto, CarreraDTO cDto){
-        Alumno a = this.alumnoRepository.findById(aDto.getDni()).orElseThrow(() -> new RuntimeException("Alumno no encontrado"));
-        Carrera c = this.carreraRepository.findById(cDto.getId()).orElseThrow(() -> new RuntimeException("Carrera no encontrada"));;
+    public void matricularAlumnoACarrera(IdAlumnoCarreraDTO acDto){
+        Alumno a = this.alumnoRepository.findById(acDto.getDniAlumno()).orElseThrow(() -> new RuntimeException("Alumno no encontrado"));
+        Carrera c = this.carreraRepository.findById(acDto.getIdCarrera()).orElseThrow(() -> new RuntimeException("Carrera no encontrada"));
         LocalDate hoy = LocalDate.now();
 
-        AlumnoCarrera ac = new AlumnoCarrera(a, c, 0,hoy.getYear(), 0);
+        AlumnoCarrera ac = new AlumnoCarrera(a, c, 0, hoy.getYear(), 0);
         this.alumnoCarreraRepository.save(ac);
     }
 }
